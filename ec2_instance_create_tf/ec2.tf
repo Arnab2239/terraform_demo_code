@@ -41,7 +41,7 @@ resource "aws_security_group" "my_group" {
 
 
 resource "aws_instance" "terra-ec2" {
-  count = 3
+  count = 3 #edit for required count
 
   key_name               = aws_key_pair.my-key.key_name
   vpc_security_group_ids = [aws_security_group.my_group.id]
@@ -55,6 +55,7 @@ resource "aws_instance" "terra-ec2" {
   }
 
   tags = {
-    Name = "arnab-terra-${count.index}"
+    Name = "arnab-terra-${count.index}" #create specific name
   }
 }
+
